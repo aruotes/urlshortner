@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #1F2937;
+  background: radial-gradient(circle at top left, #1a1000, #2b1600 80%);
+  font-family: 'Poppins', sans-serif;
+  color: #f3d9b1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background-color: rgba(26, 16, 0, 0.9);
+  border-radius: 16px;
+  padding: 40px 50px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #ff6c00;
+  box-shadow:
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.15);
+
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 600;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: #ff7f11;
+  text-shadow:
+    0 0 8px #ff7f11,
+    0 0 20px #ff9c2aaa;
+}
+
+form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input[type="url"] {
+  flex: 1 1 70%;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1rem;
+  font-family: 'Share Tech Mono', monospace;
+  background-color: #2b1600;
+  color: #f3d9b1;
+  outline: none;
+  box-shadow:
+    inset 0 0 8px #ff7f11,
+    inset 0 0 15px #ff6c00;
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="url"]::placeholder {
+  color: #aa7f45;
+  font-style: italic;
+}
+
+input[type="url"]:focus {
+  box-shadow:
+    0 0 12px #ff7f11,
+    inset 0 0 15px #ff7f11;
+  background-color: #1a1000;
+  color: #fbe8c4;
+}
+
+button {
+  flex: 1 1 25%;
+  background-color: transparent;
+  border: 2px solid #ff7f11;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  color: #ff7f11;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 16px 0;
+  box-shadow:
+    0 0 6px #ff7f11,
+    0 0 20px #ff7f11;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover, button:focus {
+  background-color: #ff7f11;
+  color: #2b1600;
+  box-shadow:
+    0 0 12px #ff7f11,
+    0 0 40px #ff7f11;
+}
+
+.result, .error {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 600;
+  font-size: 1.15rem;
+  word-break: break-word;
+  max-width: 100%;
+  display: inline-block;
+  user-select: all;
+  position: relative;
+  border: 1px solid;
+}
+
+.result {
+  background-color: rgba(255, 127, 17, 0.1);
+  color: #ff7f11;
+  border-color: #ff7f11;
+  text-align: center;
+  text-shadow:
+    0 0 6px #ff7f11,
+    0 0 10px #ff9c2a;
+}
+
+.result a {
+  color: #ff7f11;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.result a:hover {
+  color: #ff9c2a;
+}
+
+.error {
+  background-color: rgba(255, 80, 50, 0.1);
+  color: #ff5032;
+  border-color: #ff5032;
+  box-shadow: 0 0 10px #ff5032aa;
+}
+
+.error::before {
+  content: "⚠ ";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.loader-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  border: 4px solid #2b1600;
+  border-top: 4px solid #ff7f11;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 8px #ff7f11;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 25px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  form {
+    flex-direction: column;
+  }
+  input[type="url"], button {
+    flex: 1 1 100%;
+  }
+  button {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aryan URL Shortener</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container" role="main">
+    <h1>🔗 Aryan URL Shortener</h1>
+    <form method="POST" novalidate>
+      <input
+        type="url"
+        name="url"
+        placeholder="Paste your full URL here (with http:// or https://)"
+        required
+        aria-label="URL input"
+      />
+      <button type="submit">Shorten</button>
+    </form>
+
+    {% if error %}
+      <div class="error" role="alert">{{ error }}</div>
+    {% endif %}
+
+    {% if short_url %}
+      <div class="result" role="region" aria-live="polite">
+        Your short URL: <a href="{{ short_url }}" target="_blank" rel="noopener">{{ short_url }}</a>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
